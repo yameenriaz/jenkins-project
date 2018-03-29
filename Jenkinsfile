@@ -7,6 +7,16 @@ pipeline {
         sh 'ant -f build.xml -v'
       }
     }
+    stage('Test') {
+      steps {
+        echo "Testing stage run"
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo "Deploy stage run"
+      }
+    }
   }
   
   post {
