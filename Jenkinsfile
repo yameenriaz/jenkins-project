@@ -21,7 +21,7 @@ pipeline {
   
   post {
     always {
-       archiveArtifacts artifacts: "dist/*-$BUILD_NUMBER.jar", fingerprint: true
+       archiveArtifacts artifacts: 'dist/*-$BUILD_NUMBER.jar', fingerprint: true
     }
   }
 }
