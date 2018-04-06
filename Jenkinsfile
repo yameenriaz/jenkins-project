@@ -5,14 +5,15 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
   }
   stages {
+    stage('Unit Tests') {
+      steps {
+        sh 'ant -f text.xml -v'
+        junit 'reports/reslt.xml'
+      }
+    }
     stage('build') {
       steps {
         sh 'ant -f build.xml -v'
-      }
-    }
-    stage('Test') {
-      steps {
-        echo "Testing stage run"
       }
     }
     stage('Deploy') {
