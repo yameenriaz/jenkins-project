@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+    label 'Master'
+  }
   
   options {
     buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
@@ -18,7 +20,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        echo "Deploy stage run"
+        sh "cp dist/rectangle_${env.BUILD_NUMBER.jar /var/www/html/all/}        
       }
     }
   }
